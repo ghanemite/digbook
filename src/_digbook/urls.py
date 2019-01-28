@@ -6,6 +6,6 @@ urlpatterns = [
     # Examples:
     # url(r'^$', '_digbook.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^bookmarks/', include(b_urls)),
+    url(r'^', include(b_urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]

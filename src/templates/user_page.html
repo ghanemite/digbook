@@ -1,28 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DigBookmarks - User: {{username}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script> -->
-</head>
-<body>
-    <h1>Bookmarks for {{username}}</h1>
+{% extends "base.html" %}
+{% block title %}
+    {{username}}
+{% endblock title %}
+
+{% block head %}
+    Bookmarks for {{username}}
+{% endblock head %}
+
+{% block content %}
+    
     {% if bookmarks %}
         <ul>
-        {% for bookmark in bookmarks  %}
+            {% for bookmark in bookmarks %}
             <li>
                 <a href="{{bookmark.link.url}}">
-                    {{bookmark.title}}
+                    {{ bookmark.title }}
                 </a>
-            </li> 
-        {% endfor %}
+            </li>
+            {% endfor %}
         </ul>
     {% else %}
-        <p>No Bookmarks found for this user</p>
-    {% endif %}
-        
-</body>
-</html>
+        <p>No bookmarks found.</p>
+    {% endif %}    
+{% endblock content %}

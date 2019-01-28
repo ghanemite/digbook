@@ -1,13 +1,12 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
 
 def main_page(request):
     context = {
         'head_title':'DigBookmarks',
-        'page_title':'Welcome to Django Bookmarks',
-        'page_body':'Where you can store your bookmarked links',
     }
     return render(request,'main_page.html', context)
 
@@ -20,3 +19,8 @@ def user_page(request, username):
         'bookmarks':bookmarks,
     }
     return render(request,'user_page.html', context)
+
+
+def logout_page(request):
+    logout(request)
+    return HttpResponseRedirect('/')

@@ -1,15 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{heade_title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script> -->
-</head>
-<body>
-    <h1> {{page_title}} </h1>
-    <p> {{ page_body }} </p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+    Welcome to DigBook
+{% endblock title %} 
+
+{% block head %}
+    Welcome to Django Bookmarks    
+{% endblock head %}
+
+{% block content %}
+    {% if user.username %}
+        <h3>Welcome {{user.username}}</h3>
+        <p>Here you can store and share bookmarks</p>
+        <p>
+            <a href="{% url 'user_page' user.username %}">
+                Go to your bookmarks
+            </a>
+        </p>
+    {% else %}
+    <h3>Welcome anonymous user!</h3>
+    <p>You need to <a href="{% url 'login' %}">Login</a> 
+        <br>Before you can store and share bookmarks</p>
+    {% endif %}
+{% endblock content %}
+    
+    
