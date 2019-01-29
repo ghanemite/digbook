@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Save Bookmark
+{% endblock title %}
+
+{% block head %}
+    Save Bookmark
+{% endblock head %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Save" class="btn">
+    </form>
+{% endblock content %}
+    
