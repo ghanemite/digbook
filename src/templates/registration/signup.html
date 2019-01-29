@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Sign Up
+{% endblock title %}
+
+{% block head %}
+    Join Us (Sign up below)
+{% endblock head %}
+
+{% block content %}
+<form action="." method="POST" class="signup">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn" type="submit" value="Sign up">
+</form>
+{% endblock content %}
+    

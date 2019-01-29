@@ -14,17 +14,17 @@ User Login
     Please Try again.
 </p>
 {% endif %}
-<form action="" method="POST">
+<form action="" method="POST" class="login">
     {% csrf_token %}
     <p>
         <label for="id_username">Username:</label>
         {{form.username}}
     </p>
     <p>
-        <label for="id_password">Password</label>
+        <label for="id_password">Password:</label>
         {{form.password}}
     </p>
     <input type="hidden" name="next" value="/">
-    <input type="submit" value="Login">
+    <input class="btn" type="submit" value="Login">
 </form>
 {% endblock content %}
