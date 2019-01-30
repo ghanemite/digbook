@@ -1,7 +1,7 @@
 {% if bookmarks %}
 <ul class="bookmarks">
     {% for bookmark in bookmarks %}
-    <li>
+    <li class="bookmark">
         <a target="_blank" href="{{bookmark.link.url}}" class="title">
             {{bookmark.title}}
         </a> <br>
@@ -10,7 +10,7 @@
         {% if bookmark.tags.all %}
         <ul class="tags">
             {% for tag in bookmark.tags.all %}
-            <li>
+            <li class="tag-name">
                 <a href="{% url 'tag_page' tag.pk %}">
                     {{tag.name}}
                 </a>

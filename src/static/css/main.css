@@ -1,3 +1,7 @@
+ul li {
+    list-style: none;
+}
+
 #nav {
     float: right;
     padding-top: 10px;
@@ -35,6 +39,10 @@ ul.tags, ul.tags li {
     padding: 0;
 }
 
+ul.tags {
+    margin-top: 15px;
+}
+
 #tag-cloud {
     text-align: center;
 }
@@ -49,3 +57,20 @@ ul.tags, ul.tags li {
 .tag-cloud-3 {font-size: 160%}
 .tag-cloud-4 {font-size: 180%}
 .tag-cloud-5 {font-size: 200%}
+
+/* mine */
+.bookmark {
+    padding-bottom: 20px;
+}
+.title {
+    font-size: 1.5em !important;
+}
+.tag-name a, .title {
+    text-decoration: none;
+    font-size: 1.09em;
+    color: #333333;
+}
+.tag-name a:hover, .title:hover {
+    /* text-decoration: underline; */
+    color: #4d4dff;
+}
