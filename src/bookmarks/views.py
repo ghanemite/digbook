@@ -104,3 +104,30 @@ def tag_page(request, pk):
         'show_user': True
     }
     return render(request,'bookmarks/tag_page.html', context)
+
+
+def tag_cloud_page(request):
+    MAX_WEIGHT = 5
+    tags = Tag.objects.all().order_by('name')
+
+    # calculating tag, min and max count.
+    min_count = max_count = tags[0].bookmarks.count()
+    for tag in tags:
+        tag.count = tag.bookmarks.count()
+        if tag.count < min_count:
+            min_count = tag.count
+        if max_count < tag.count:
+            max_count = tag.count
+        
+    # calculate count range. and we avoid dividing by zero.
+    range = float(max_count - min_count)
+    if range == 0.0:
+        range = 1.0
+    
+    # calculate tag weights
+    for tag in tags:
+        tag.weight = int(
+            MAX_WEIGHT*(tag.count - min_count) / range
+        )
+
+    return render(request, 'bookmarks/tag_cloud_page.html', {'tags':tags})
