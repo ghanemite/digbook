@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Digbook | {% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/jquery.css' %}"></script>
 </head>
 
 <body>
@@ -36,6 +37,8 @@
         </ul>
         {% endif %}
     </div>
-</body>
 
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block external %}{% endblock external %} 
+</body>
 </html>
