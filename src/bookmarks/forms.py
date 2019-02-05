@@ -62,3 +62,14 @@ class BookmarkSaveForm(forms.Form):
         })
     )
 
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField(
+        label = '',
+        widget = forms.TextInput(attrs={
+            'size':24,
+            'placeholder': 'Search bookmarks',
+            })
+    )
+

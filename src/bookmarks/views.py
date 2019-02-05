@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
-from .forms import BookmarkSaveForm, RegistrationForm
+from .forms import BookmarkSaveForm, RegistrationForm, SearchForm
 from .models import Bookmark, Link, Tag
 
 
@@ -131,3 +131,30 @@ def tag_cloud_page(request):
         )
 
     return render(request, 'bookmarks/tag_cloud_page.html', {'tags':tags})
+
+
+
+def search_page(request):
+    form = SearchForm()
+    bookmarks = []
+    show_results = False
+    if 'query' in request.GET:
+        show_results = True 
+        query = request.GET['query'].strip()
+        if query:
+            form = SearchForm({'query': query})
+            bookmarks = Bookmark.objects.filter(
+                title__icontains=query)[:10]
+    
+    context = {
+        'form':form,
+        'bookmarks':bookmarks,
+        'show_results':show_results,
+        'show_tags':True,
+        'show_user': True
+    }
+
+    if 'ajax' in request.GET:
+        return render(request, 'bookmarks/bookmark_list.html', context)
+    else:
+        return render(request, 'bookmarks/search.html', context)
