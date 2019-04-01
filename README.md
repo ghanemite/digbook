@@ -1,2 +1,2 @@
 # digbook
-social bookmarking service
+simple social bookmarking service
