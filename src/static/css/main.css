@@ -1,0 +1,76 @@
+ul li {
+    list-style: none;
+}
+
+#nav {
+    float: right;
+    padding-top: 10px;
+}
+#nav a {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.container {
+    padding-top: 40px;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+.signup, .login {
+    width: 400px;
+    display: block;
+    margin: auto;
+}
+input {
+    font-size: 20px;
+    width: 70%;
+    height: 25px;
+    display: block;
+}
+
+.btn {
+    padding: 5px;
+    height: 40px !important;
+    background-color: greenyellow;
+}
+
+ul.tags, ul.tags li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+ul.tags {
+    margin-top: 15px;
+}
+
+#tag-cloud {
+    text-align: center;
+}
+
+#tag-cloud a {
+    margin: 0 a.2em;
+}
+
+.tag-cloud-0 {font-size: 100%}
+.tag-cloud-1 {font-size: 120%}
+.tag-cloud-2 {font-size: 140%}
+.tag-cloud-3 {font-size: 160%}
+.tag-cloud-4 {font-size: 180%}
+.tag-cloud-5 {font-size: 200%}
+
+/* mine */
+.bookmark {
+    padding-bottom: 20px;
+}
+.title {
+    font-size: 1.5em !important;
+}
+.tag-name a, .title {
+    text-decoration: none;
+    font-size: 1.09em;
+    color: #333333;
+}
+.tag-name a:hover, .title:hover {
+    /* text-decoration: underline; */
+    color: #4d4dff;
+}

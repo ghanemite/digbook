@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Welcome to DigBook
+{% endblock title %} 
+
+{% block head %}
+    Welcome to Django Bookmarks    
+{% endblock head %}
+
+{% block content %}
+    {% if user.username %}
+        <h3>Welcome {{user.username}}</h3>
+        <p>Here you can store and share bookmarks</p>
+        <p>
+            <a href="{% url 'user_page' user.username %}">
+                Go to your bookmarks
+            </a>
+        </p>
+    {% else %}
+    <h3>Welcome anonymous user!</h3>
+    <p>You need to <a href="{% url 'login' %}">Login</a> 
+        <br>Before you can store and share bookmarks</p>
+    {% endif %}
+{% endblock content %}
+    
+    

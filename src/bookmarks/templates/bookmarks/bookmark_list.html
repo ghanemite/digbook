@@ -1,0 +1,36 @@
+{% if bookmarks %}
+<ul class="bookmarks">
+    {% for bookmark in bookmarks %}
+    <li class="bookmark">
+        <a target="_blank" href="{{bookmark.link.url}}" class="title">
+            {{bookmark.title}}
+        </a> <br>
+        {% if show_tags %}
+        Tags:
+        {% if bookmark.tags.all %}
+        <ul class="tags">
+            {% for tag in bookmark.tags.all %}
+            <li class="tag-name">
+                <a href="{% url 'tag_page' tag.pk %}">
+                    {{tag.name}}
+                </a>
+            </li> ,
+            {% endfor %}
+        </ul>
+        {% else %}
+        None.
+        {% endif %}
+        <br>
+        {% endif %}
+        {% if show_user %}
+        Posted by:
+        <a class="username" href="{% url 'user_page' bookmark.user.username %}">
+            {{bookmark.user.username}}
+        </a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No bookmarks found</p>
+{% endif %}

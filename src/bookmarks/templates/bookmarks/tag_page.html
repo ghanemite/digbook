@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Tag: {{tag.name}}
+{% endblock title %}
+
+{% block head %}
+    Bookmarks for tag: {{tag.name}}
+{% endblock head %}
+
+{% block content %}
+    {% include 'bookmarks/bookmark_list.html' %}
+{% endblock content %}
+    
+    
